@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        
+        <link rel="stylesheet" type = "text/css" href="../static/main1.css">
+        <!-- Bootstrap CSS -->      
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            {% if title%}
+            <title>{{title}}</title>
+            {%else%}
+            <title>blogpost</title>
+            {% endif%}
+        
+    </head>
+    <body>
+        <nav class='header'>
+            <label class="logo">PRS</label>
+            <ul>
+                
+                <li><a href="{{url_for('login')}}" class="active">Home</a></li>
+                <li><a href="{{url_for('login')}}" class="active">Login</a></li>
+                <li><a href="{{url_for('register')}}" class="active">Register</a></li>
+                <li><a href="{{url_for('about')}}" class="active">About Us</a></li>
+            </ul>
+        </nav>
+        {%block content%}
+        {% endblock %}
+    </body>
+</html>
