@@ -8,27 +8,40 @@
         <link rel="stylesheet" type = "text/css" href="../static/main1.css">
         <!-- Bootstrap CSS -->      
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <!-- <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> -->
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-            {% if title%}
+        <!-- <script src="https://kit.fontawesome.com/a076d05399.js"></script> -->
+            {% if title %}
             <title>{{title}}</title>
             {%else%}
             <title>blogpost</title>
             {% endif%}
         
     </head>
-    <body>
+    <body class="main">
         <nav class='header'>
             <label class="logo">PRS</label>
             <ul>
                 
                 <li><a href="{{url_for('login')}}" class="active">Home</a></li>
-                <li><a href="{{url_for('login')}}" class="active">Login</a></li>
-                <li><a href="{{url_for('register')}}" class="active">Register</a></li>
-                <li><a href="{{url_for('about')}}" class="active">About Us</a></li>
+                <li><a href="{{url_for('login')}}" >Login</a></li>
+                <li><a href="{{url_for('registration')}}" >Register</a></li>
+                <li><a href="{{url_for('about')}}" >About Us</a></li>
             </ul>
-        </nav>
+        </nav>  
+        {% with messages = get_flashed_messages(with_categories = true) %}
+        {% if messages %}
+        {% for category, message in messages %}
+            
+            <div class="display">
+                <div class = "alert alert-{{category}}">
+                    {{message}}
+                </div>
+            </div>
+        {% endfor%}
+        {% endif %}
+        {%endwith%}
         {%block content%}
         {% endblock %}
     </body>
-</html>
+    </html>
