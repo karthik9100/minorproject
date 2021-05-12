@@ -1,6 +1,8 @@
 
 /* sign in FORM */
-
+.backimage{
+    background-image: url("../background.jpeg");
+}
 #logreg-forms{
     width:412px;
     margin:10vh auto;

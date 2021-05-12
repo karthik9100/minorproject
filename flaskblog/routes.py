@@ -4,7 +4,7 @@ from flaskblog import app
 from flask import render_template, request, url_for, flash, redirect
 from flaskblog.forms import RegistrationForm, LoginForm
 from flask_login import login_user
-
+from scripts import Query
 
 @app.route("/about")
 def about():
@@ -49,49 +49,16 @@ def login():
             flash("Login Unsuccessful!Please enter valid details")
     return render_template("login.html", title="Login", form=form)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+@app.route("/home",methods = ["GET","POST"])
 
 
 @app.route("/home")
 def home():
-
+    if(request.method=="POST"):
+        item = request.form['search']
+        obj = Query()
+        obj.scratch(item)
+        names,prices,ratings = obj.display(obj.names,obj.prices,obj.ratings)
+        
+        return render_template("home.html",names = names,prices = prices,ratings = ratings, title="Home",zip = zip)
     return render_template("home.html", title="Home")

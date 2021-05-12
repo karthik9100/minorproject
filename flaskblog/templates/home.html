@@ -1,4 +1,29 @@
 {% extends "layout1.html"%}
 {% block content %}
 <h1> Home page</h1>
+<style>
+    body{
+        background-image: url("background.jpeg");
+        
+    }
+</style>
+<form method="POST">
+<div class = "search" style="text-align: center;">
+    <input type="text" placeholder="Search.." name="search">    
+    <button type="submit"><i class="fa fa-search"></i></button>
+</div>
+    
+</form>
+<div>
+    {% if names %}
+        {% for name,price,rating in zip(names,prices,ratings) %}
+            
+            {{name}}
+            {{price}}
+            {{rating}}
+            <br>
+
+        {% endfor %}
+    {% endif %}
+</div>
 {% endblock content %}
