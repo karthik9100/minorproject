@@ -5,19 +5,21 @@ import ssl
 class Query():
     def __init__(self):
         pass
-    def display(self,names, prices, ratings):
+    def display(self,names, prices, ratings,images):
         flag = 1
         n =[]
         p = []
         r = []
-        for name,price,rating in zip(names,prices,ratings):
+        im = []
+        for name,price,rating, image in zip(names,prices,ratings,images):
             
             n.append(name.text)
             p.append(price.text)
             r.append(rating.text)
+            im.append(image.get('src'))
             
             flag=0
-        return n,p,r
+        return n,p,r,im
         if flag:
             print("No results found")
 
@@ -35,7 +37,7 @@ class Query():
         # Amazon.............
 
 
-        # item = "+".join(item.split(" "))
+        item = "+".join(item.split(" "))
         # url = "https://www.amazon.in/s?k="+item+"&ref=nb_sb_noss_2"
 
 
@@ -66,5 +68,7 @@ class Query():
         self.names = soup.find_all(class_="_4rR01T")
         self.prices = soup.find_all(class_="_30jeq3 _1_WHN1")
         self.ratings = soup.find_all(class_="_3LWZlK")
+        self.images = soup.find_all(class_="_396cs4 _3exPp9")
+
         # print(names)
         # self.display(names,prices,ratings)

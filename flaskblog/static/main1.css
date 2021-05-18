@@ -104,7 +104,10 @@ a.active, a:hover{
       
     line-height: 10px;
     font-weight: bold; 
-    padding: 10px 10px;
+    padding-top:30px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
    
 }
 .error-msg{
@@ -114,4 +117,53 @@ a.active, a:hover{
 #logreg-forms .no-style:hover{
     background:white;
     font-weight: bold;
+}
+
+/* ____________home page _______________ */
+.image-area{
+    
+    
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    padding : 20px;
+    box-sizing: border-box;
+    background:#fff;
+    border-radius:5px;
+    box-shadow: 0 5px 15px rgba(0,0,0,.5);
+    display:flex;
+    width:800px
+}
+.image-area image{
+    width:150px;
+    flex:0 0 150px;
+}
+.image-area image img{
+    max-width:100%;
+}
+
+/* ____________reset password _______________ */
+
+#width-chg{
+    width: 300px;
+    height:300px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top:30px;
+    padding-top: 20px;
+    padding-left:30px;
+    padding-right: 30px;
+    text-align: center ;
+    border: 0.5px solid rgb(49, 50, 51);
+    border-radius: 5px;
+    position: relative;
+}           
+.next{
+    position: absolute;
+    right:15px;
+    bottom:15px;
+}
+.align{
+    padding-bottom: 10px;
 }

@@ -23,12 +23,34 @@
         <nav class='header'>
             <label class="logo">PRS</label>
             <ul>
+                {%if title=="Home" %}
+                <li><a href="{{url_for('home')}}" class="active">Home</a></li>
                 
-                <li><a href="{{url_for('login')}}" class="active">Home</a></li>
-                <li><a href="{{url_for('login')}}" >Login</a></li>
-                <li><a href="{{url_for('registration')}}" >Register</a></li>
+                {% elif(title!="Login" and title!="Register") %}
+                <li><a href="{{url_for('home')}}" >Home</a></li>
+                {% endif %}
+                {%if title=="Login" %}
+                <li><a href="{{url_for('login')}}" class="active">Login</a></li>
+                {% elif title!="Home" %}
+                <li><a href="{{url_for('login')}}">Login</a></li>
+                {% endif %}
+
+                {%if title=="Register" %}
+                <li><a href="{{url_for('registration')}}" class="active">Register</a></li>
+                {% elif title!="Home" %}
+                <li><a href="{{url_for('registration')}}">Register</a></li>
+                {% endif %}
+
+                {%if title=="About" %}
+                <li><a href="{{url_for('about')}}" class="active">About Us</a></li>
+                {% elif title!="Register" and title!="Login" %}
                 <li><a href="{{url_for('about')}}" >About Us</a></li>
-               
+                {% endif %}
+
+                {% if title=="Home" %}
+                <li><a href="{{url_for('logout')}}" >Logout</a></li>
+                {% endif %}
+
             </ul>
         </nav>  
         {% with messages = get_flashed_messages(with_categories = true) %}

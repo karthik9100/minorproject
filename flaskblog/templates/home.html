@@ -14,16 +14,22 @@
 </div>
     
 </form>
-<div>
-    {% if names %}
-        {% for name,price,rating in zip(names,prices,ratings) %}
-            
-            {{name}}
-            {{price}}
-            {{rating}}
-            <br>
 
+    {% if names %}
+        {% for name,price,rating,image in zip(names,prices,ratings,images) %}
+        <div class="image-area">
+            <div class="image" >
+                <img src = "{{image}}">
+            </div>
+            <div class="description">
+                {{name}}
+                {{price}}
+                {{rating}}
+            </div>
+        
+            <br>
+        </div>
         {% endfor %}
     {% endif %}
-</div>
+
 {% endblock content %}
